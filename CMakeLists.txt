@@ -70,7 +70,7 @@ if(CMAKE_COMPILER_IS_GNUCC)
     # http://pubs.opengroup.org/onlinepubs/9699919799/functions/V2_chap02.html#tag_15_02_01_01
     # We specify that we are POSIX.1-2001 compliant and XSI-conforming. We only
     # need to specify _XOPEN_SOURCE as _POSIX_C_SOURCE will be set implicitly.
-    set(CMAKE_C_FLAGS "-std=c99 -D_GLIBCXX_USE_CXX11_ABI=0 -pedantic -Wall -Wextra -Wno-clobbered -D_XOPEN_SOURCE=600"
+    set(CMAKE_C_FLAGS "-std=c99 -D_GLIBCXX_USE_CXX11_ABI=0 -pedantic -Wall -Wextra -Wno-clobbered -D_XOPEN_SOURCE=600 -DPYTHON_EXECUTABLE=/usr/bin/python"
         CACHE STRING
         "Flags used by the compiler during all build types." FORCE)
     if((CMAKE_C_COMPILER_VERSION VERSION_EQUAL 5.0) OR (CMAKE_C_COMPILER_VERSION VERSION_GREATER 5.0))
@@ -236,7 +236,7 @@ add_subdirectory(src)
 # if(CMAKE_COMPILER_IS_GNUCC AND CMAKE_COMPILER_IS_GNUCXX)
 #e.g., Clang/Clang++ does not work
 # endif(CMAKE_COMPILER_IS_GNUCC AND CMAKE_COMPILER_IS_GNUCXX)
-add_subdirectory(doc)
+# add_subdirectory(doc)
 add_subdirectory(deploy)
 
 # -- Install path for specific madlib version ----------------------------------

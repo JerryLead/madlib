@@ -82,6 +82,7 @@ set(PYXB_TAR_MD5 4303573fc7094ce4664c5b71cd4bdb48)
 set(PYXB_TAR "PyXB-${PYXB_VERSION}.tar.gz")
 set(PYXB_URL "${SOURCEFORGE_BASE_URL}/pyxb/files/${PYXB_TAR}")
 
+
 if(NOT PYXB_TAR_SOURCE)
     find_file(PYXB_TAR_SOURCE ${PYXB_TAR}
         PATHS ${MAD_THIRD_PARTY}/downloads)
@@ -106,7 +107,8 @@ set(MAD_MODULE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/modules)
 
 # -- Third-party dependencies: Find or download Boost --------------------------
 
-find_package(Boost 1.47)
+#find_package(Boost 1.47)
+find_package(Boost 1.53)
 if(Boost_FOUND)
     # We use BOOST_ASSERT_MSG, which only exists in Boost 1.47 and later.
     # Unfortunately, the FindBoost module seems to be broken with respect to
@@ -161,7 +163,9 @@ include_directories(SYSTEM ${MAD_THIRD_PARTY}/src/EP_eigen)
 
 # -- Third-party dependencies: Download the Python libraries ---
 
-find_package(PythonInterp REQUIRED)
+# find_package(PythonInterp REQUIRED) 
+find_package(PythonInterp 2)
+find_package(PythonLibs 2)
 
 
 set(BUILD_PYTHON_LIBDIR "${CMAKE_BINARY_DIR}/src/lib/python")
