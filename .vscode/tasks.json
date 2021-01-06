@@ -1,0 +1,46 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"command": "sh",
+	"args": ["-c"],
+	"presentation": {
+		"reveal": "always"
+	},
+	"tasks": [
+		{
+			"label": "Configure",
+			"type": "shell",
+			"command": "./configure -DPOSTGRESQL_9_2_PG_CONFIG=/home/lijie/postgres-origin/bin/pg_config ",
+			"problemMatcher": [
+				"$eslint-compact"
+			]
+		},
+		{
+			"label": "Make All",
+			"type": "shell",
+			"command": "make -j4 all",
+			"problemMatcher": [
+				"$eslint-compact"
+			]
+		},
+		{
+			"label": "Make Clean All",
+			"type": "shell",
+			"command": "make clean",
+			"problemMatcher": [
+				"$eslint-compact"
+			]
+		},
+		{
+			"label": "Make Install",
+			"type": "shell",
+			"command": "sudo make install"
+		},
+		{
+			"label": "Make Uninstall",
+			"type": "shell",
+			"command": "sudo make uninstall"
+		}
+	]
+}
